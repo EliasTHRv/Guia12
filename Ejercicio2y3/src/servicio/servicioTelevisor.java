@@ -5,20 +5,16 @@ padre, lo utilizamos para llenar los atributos heredados del padre y después ll
 los atributos del televisor.
  */
 
-import java.util.Scanner;
-
 import entidad.Electrodomesticos;
 import entidad.Televisor;
 
 public class servicioTelevisor extends servicioElectrodomesticos {
 
-    private Scanner leer = new Scanner(System.in);
-    private Electrodomesticos tele1 = crearElectrodomestico();
     private Televisor tv1 = new Televisor();
     private String sinto;
 
-    public Televisor creaTelevisor() {
-
+    public Televisor crearTelevisor() {
+        Electrodomesticos tele1 = crearElectrodomestico();
         tv1.setColorElectro(tele1.getColorElectro());
         tv1.setConsumoElectro(tele1.getConsumoElectro());
         tv1.setPesoElectro(tele1.getPesoElectro());
@@ -29,7 +25,7 @@ public class servicioTelevisor extends servicioElectrodomesticos {
 
         tv1.setSintonizadorTv(sintonizadoSioNo());
         tv1.setPrecioElectro(super.precioFinal());
-
+        System.out.println(tv1.getPrecioElectro());
         return tv1;
     }
 

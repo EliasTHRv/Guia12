@@ -6,7 +6,7 @@ import entidad.Electrodomesticos;
 
 public class servicioElectrodomesticos extends Electrodomesticos {
 
-    private Scanner leer = new Scanner(System.in);
+    protected Scanner leer = new Scanner(System.in);
     private Electrodomesticos elec1 = new Electrodomesticos();
 
     /*
@@ -69,11 +69,11 @@ public class servicioElectrodomesticos extends Electrodomesticos {
     public Electrodomesticos crearElectrodomestico() {
 
         System.out.println("Ingrese el color del electrodomestico: ");
-        elec1.setColorElectro(leer.nextLine());
+        elec1.setColorElectro(leer.next());
         comprobarColor();
 
         System.out.println("Ingrese el consumo del electrodomestico");
-        elec1.setConsumoElectro(leer.nextLine().charAt(0));
+        elec1.setConsumoElectro(leer.next().charAt(0));
         comprobarConsumoEnergetico();
         // System.out.println(elec1.getConsumoElectro());
         elec1.setPrecioElectro(1000);

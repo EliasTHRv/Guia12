@@ -1,14 +1,10 @@
 package servicio;
 
-import java.util.Scanner;
-
 import entidad.Electrodomesticos;
 import entidad.Lavadora;
 
 public class servicioLavadora extends servicioElectrodomesticos {
 
-    private Scanner leer = new Scanner(System.in);
-    private Electrodomesticos lav1 = crearElectrodomestico();
     private Lavadora l1 = new Lavadora();
     /*
      * Método crearLavadora (): este método llama a crearElectrodomestico() de la
@@ -19,6 +15,7 @@ public class servicioLavadora extends servicioElectrodomesticos {
      */
 
     public Lavadora crearLavadora() {
+        Electrodomesticos lav1 = crearElectrodomestico();
         System.out.println("Ingrese la carga de la lavadora: ");
         l1.setCargaLavadora(leer.nextDouble());
 
@@ -26,7 +23,7 @@ public class servicioLavadora extends servicioElectrodomesticos {
         l1.setConsumoElectro(lav1.getConsumoElectro());
         l1.setPesoElectro(lav1.getPesoElectro());
         l1.setPrecioElectro(super.precioFinal());
-
+        System.out.println(l1.getPrecioElectro());
         return l1;
     }
 
