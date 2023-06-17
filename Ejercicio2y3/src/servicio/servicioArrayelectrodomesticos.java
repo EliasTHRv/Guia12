@@ -60,19 +60,22 @@ public class servicioArrayelectrodomesticos {
     private void precioFinalElectros() {
         double sumaLavafinal = 0;
         double sumaTelefinal = 0;
-        double totalP = 0;
         for (Electrodomesticos electro : listaElectro) {
 
             if (electro instanceof Lavadora) {
 
-                double sumaLava = la1.precioFin();
+                double sumaLava = electro.getPrecioElectro();
                 sumaLavafinal += sumaLava;
+
             } else if (electro instanceof Televisor) {
-                double sumaTele = t1.precioFintv();
+                double sumaTele = electro.getPrecioElectro();
                 sumaTelefinal += sumaTele;
             }
         }
-        totalP = sumaLavafinal + sumaTelefinal;
-        System.out.println("El precio total de todos los electrodometicos: " + " $: " + totalP);
+        System.out.println("La suma de todos los TV es: $" + sumaTelefinal);
+        System.out.println("La suma de todas las Lavadoras es: $" + sumaLavafinal);
+
+        System.out
+                .println("El precio total de todos los electrodometicos: " + " $:" + (sumaLavafinal + sumaTelefinal));
     }
 }

@@ -11,7 +11,6 @@ import entidad.Televisor;
 public class servicioTelevisor extends servicioElectrodomesticos {
 
     private Televisor tv1 = new Televisor();
-    private String sinto;
 
     public Televisor crearTelevisor() {
         Electrodomesticos tele1 = crearElectrodomestico();
@@ -20,12 +19,10 @@ public class servicioTelevisor extends servicioElectrodomesticos {
         tv1.setPesoElectro(tele1.getPesoElectro());
         System.out.println("Ingrese las pulgadas del televisor: ");
         tv1.setPulgadasTv(leer.nextInt());
-        System.out.println("Ingrese si tiene sintonizador o no: S/N ");
-        sinto = leer.next();
 
         tv1.setSintonizadorTv(sintonizadoSioNo());
-        tv1.setPrecioElectro(super.precioFinal());
-        System.out.println(tv1.getPrecioElectro());
+        tv1.setPrecioElectro(precioFintv());
+        // System.out.println(tv1.getPrecioElectro());
         return tv1;
     }
 
@@ -39,7 +36,8 @@ public class servicioTelevisor extends servicioElectrodomesticos {
      * también deben afectar al precio.
      */
 
-    public double precioFintv() {
+    private double precioFintv() {
+        tv1.setPrecioElectro(super.precioFinal());
 
         if (tv1.getPulgadasTv() > 40) {
             tv1.setPrecioElectro(tv1.getPrecioElectro() * 1.30);
@@ -53,12 +51,14 @@ public class servicioTelevisor extends servicioElectrodomesticos {
     }
 
     private boolean sintonizadoSioNo() {
-
+        System.out.println("Ingrese si tiene sintonizador o no: S/N ");
+        String sinto = leer.next();
         if (sinto.equalsIgnoreCase("s")) {
             return true;
         } else {
             return false;
         }
+
     }
 
 }

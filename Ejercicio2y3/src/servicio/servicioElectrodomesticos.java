@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import entidad.Electrodomesticos;
 
-public class servicioElectrodomesticos extends Electrodomesticos {
+public class servicioElectrodomesticos {
 
     protected Scanner leer = new Scanner(System.in);
     private Electrodomesticos elec1 = new Electrodomesticos();
@@ -17,9 +17,9 @@ public class servicioElectrodomesticos extends Electrodomesticos {
      * objeto y no será visible.
      */
 
-    protected void comprobarConsumoEnergetico() {
+    public void comprobarConsumoEnergetico() {
 
-        Character.toLowerCase(elec1.getConsumoElectro());
+        elec1.setConsumoElectro(Character.toLowerCase(elec1.getConsumoElectro()));
         if (elec1.getConsumoElectro() <= 'a' && 'f' >= elec1.getConsumoElectro()) {
             elec1.setConsumoElectro(elec1.getConsumoElectro());
         } else {
@@ -38,7 +38,7 @@ public class servicioElectrodomesticos extends Electrodomesticos {
      * minúsculas. Este método se invocará al crear el objeto y no será visible.
      */
 
-    protected void comprobarColor() {
+    public void comprobarColor() {
         String[] auxColores = { "blanco", "negro", "rojo", "azul", "gris" };
         boolean auxBoo = true;
 
@@ -73,10 +73,10 @@ public class servicioElectrodomesticos extends Electrodomesticos {
         comprobarColor();
 
         System.out.println("Ingrese el consumo del electrodomestico");
-        elec1.setConsumoElectro(leer.next().charAt(0));
+        elec1.setConsumoElectro(Character.toLowerCase(leer.next().charAt(0)));
         comprobarConsumoEnergetico();
         // System.out.println(elec1.getConsumoElectro());
-        elec1.setPrecioElectro(1000);
+        elec1.setPrecioElectro(1000.0);
 
         System.out.println("Ingrese el peso del electrodomestico: ");
         elec1.setPesoElectro(leer.nextDouble());
@@ -127,17 +127,14 @@ public class servicioElectrodomesticos extends Electrodomesticos {
                 break;
         }
 
-        if (elec1.getPesoElectro() >= 1 && elec1.getPesoElectro() < 20) {
+        if (elec1.getPesoElectro() < 20) {
             elec1.setPrecioElectro(elec1.getPrecioElectro() + 100);
-        } else if (elec1.getPesoElectro() >= 20 && elec1.getPesoElectro() < 49) {
+        } else if (elec1.getPesoElectro() < 50) {
             elec1.setPrecioElectro(elec1.getPrecioElectro() + 500);
-
-        } else if (elec1.getPesoElectro() >= 50 && elec1.getPesoElectro() < 79) {
+        } else if (elec1.getPesoElectro() < 80) {
             elec1.setPrecioElectro(elec1.getPrecioElectro() + 800);
-
-        } else if (elec1.getPesoElectro() > 80) {
+        } else {
             elec1.setPrecioElectro(elec1.getPrecioElectro() + 1000);
-
         }
         return elec1.getPrecioElectro();
     }

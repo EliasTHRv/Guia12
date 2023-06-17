@@ -22,8 +22,8 @@ public class servicioLavadora extends servicioElectrodomesticos {
         l1.setColorElectro(lav1.getColorElectro());
         l1.setConsumoElectro(lav1.getConsumoElectro());
         l1.setPesoElectro(lav1.getPesoElectro());
-        l1.setPrecioElectro(super.precioFinal());
-        System.out.println(l1.getPrecioElectro());
+        l1.setPrecioElectro(precioFinLav());
+        // System.out.println(l1.getPrecioElectro());
         return l1;
     }
 
@@ -38,7 +38,8 @@ public class servicioLavadora extends servicioElectrodomesticos {
      * visto en la clase Electrodoméstico también deben afectar al precio.
      */
 
-    public double precioFin() {
+    private double precioFinLav() {
+        l1.setPrecioElectro(super.precioFinal());
         if (l1.getCargaLavadora() > 30) {
             l1.setPrecioElectro(l1.getPrecioElectro() + 500);
         }
